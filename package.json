@@ -1,0 +1,19 @@
+{
+  "name": "gBuilder",
+  "version": "0.0.1",
+  "description": "gBuilder demo",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-pinchuk-itransition/gbuilder.git"
+  },
+  "author": "Alexandr Pinchuk <a2.pinchuk@itransition.com>",
+  "license": "MIT",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
