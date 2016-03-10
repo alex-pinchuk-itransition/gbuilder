@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import { combineReducers } from 'redux';
-import { Provider } from 'react-redux';
+import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import {select_tab, select_side, select_color} from '../actions'
+import lang from '../translate'
+import header from '../components/header'
+import scene from '../components/scene'
+import control_panel from '../components/control-panel'
 
-// import FriendListApp from './FriendListApp';
-import * as reducers from '../reducers';
-
-const reducer = combineReducers(reducers);
-const store = createStore(reducer);
-export default class App extends Component {
+class App extends Component {
 	render() {
 		return (
-			<div>
-				<Provider store={store}>
-					// {() => <FriendListApp /> }
-					Hello World!
-				</Provider>
-
+			<div class='app-conteiner' >
+				<header headers={lang} />
+				<scene />
+				<control_panel tabs={tabs} />
 			</div>
 		);
 	}
 }
-
+export default connect(state => {
+	return state;}
+)(App)
