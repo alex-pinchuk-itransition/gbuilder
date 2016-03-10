@@ -1,4 +1,4 @@
-export const lang = {
+let langs_state = {
 	en: {
 		'First level header': 'First level header',
 		'Second header': 'Second header',
@@ -26,3 +26,4 @@ export const lang = {
 		'Text': 'Текст'
 	}
 }
+export default langs_state;

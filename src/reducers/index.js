@@ -1,29 +1,20 @@
 import {combineReducers} from 'redux'
-import {lang} from '../translate'
-
+import langs_state from '../state/translate'
+import tabs_state from '../state/tabs'
+import sides_state from '../state/sides'
 import {
-	SELECT_TAB, SELECT_VIEW, SELECT_COLOR, select_tab, select_side, select_color
+	SELECT_TAB, SELECT_VIEW, SELECT_COLOR, SELECT_LANG,
+	select_tab, select_side, select_color, select_lang
 } from '../actions'
 
-function tabs(state = [
-	{id: 0, name: 'Colors & Materials', selected: true},
-	{id: 1, name: 'Graphics', selected: false},
-	{id: 2, name: 'Text', selected: false},
-], action) {
+function tabs(state = tabs_state, action) {
 	switch(action.type) {
 		case SELECT_TAB: return state.map(tab => select_item(tab, action));
 		default: return state;
 	}
 }
 
-function sides(state = [
-	{id: 0, color: '#ffeedd', name: 'Front', selected: true},
-	{id: 1, color: '#ffeedd', name: 'Back', selected: false},
-	{id: 2, color: '#ffeedd', name: 'Left', selected: false},
-	{id: 3, color: '#ffeedd', name: 'Right', selected: false},
-	{id: 4, color: '#ffeedd', name: 'Top', selected: false},
-	{id: 5, color: '#ffeedd', name: 'Bottom', selected: false},
-], action) {
+function sides(state = sides_state, action) {
 	switch(action.type) {
 		case SELECT_VIEW: return state.map(side => select_item(side, action));
 		case SELECT_COLOR: return state.map(side => set_side_color(side, action));
@@ -31,7 +22,14 @@ function sides(state = [
 	}
 }
 
-const reducers = combineReducers({tabs, sides});
+function translate(state = langs_state, action) {
+	switch(action.type) {
+		case SELECT_LANG: return langs_state[action.lang];
+		default: return langs_state['en'];
+	}
+}
+
+const reducers = combineReducers({tabs, sides, translate});
 
 export default reducers;
 
