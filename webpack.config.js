@@ -6,8 +6,6 @@ module.exports = {
 	devtool: 'eval',
 	entry: {
 		bundle: [
-		'webpack-dev-server/client?http://localhost:8080',
-		'webpack/hot/dev-server',
 		'./src/index'
 	]},
 	output: {
@@ -18,6 +16,13 @@ module.exports = {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				drop_console: true,
+				unsafe: true,
+				warnings: false
+			}
+		}),
 		new ExtractTextPlugin('[name].css', {
 			allChanks: true,
 			disable: process.env.NODE_ENV == 'development'
@@ -27,7 +32,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js?$/,
-				loaders: ['react-hot', 'babel?presets[]=es2015'],
+				loaders: ['babel?presets[]=es2015'],
 				include: path.join(__dirname, 'src')
 			}, {
 				test: /\.styl$/,
