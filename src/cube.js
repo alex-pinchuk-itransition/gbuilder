@@ -3,7 +3,7 @@ const cube = {init, set_colors};
 export default cube;
 
 function init(dom_node_id = 'scene', colors = [
-	0x660000, 0x006600, 0x000066, 0x666600, 0x006666, 0x660066
+	0x660000, 0x006600, 0x006666, 0x660066, 0x000066, 0x666600
 ]) {
 	target = document.getElementById(dom_node_id);
 	scene = new THREE.Scene();
