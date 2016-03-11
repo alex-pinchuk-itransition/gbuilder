@@ -1,10 +1,3 @@
-#scene {
-  width: 800px;
-  height: 800px;
-  position: absolute;
-  left: 50%;
-  margin-left: -400px;
-}
 .control-panel {
   width: 960px;
   height: 250px;
@@ -117,4 +110,161 @@
   box-shadow: 3px 3px 20px rgba(0,0,0,0.2);
   float: left;
   border-radius: 10px;
+}
+#scene {
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+}
+@media (min-height: 520px) {
+  #scene {
+    top: -265px;
+  }
+}
+@media (min-height: 540px) {
+  #scene {
+    top: -255px;
+  }
+}
+@media (min-height: 560px) {
+  #scene {
+    top: -245px;
+  }
+}
+@media (min-height: 580px) {
+  #scene {
+    top: -235px;
+  }
+}
+@media (min-height: 600px) {
+  #scene {
+    top: -225px;
+  }
+}
+@media (min-height: 620px) {
+  #scene {
+    top: -215px;
+  }
+}
+@media (min-height: 640px) {
+  #scene {
+    top: -205px;
+  }
+}
+@media (min-height: 660px) {
+  #scene {
+    top: -195px;
+  }
+}
+@media (min-height: 680px) {
+  #scene {
+    top: -185px;
+  }
+}
+@media (min-height: 700px) {
+  #scene {
+    top: -175px;
+  }
+}
+@media (min-height: 720px) {
+  #scene {
+    top: -165px;
+  }
+}
+@media (min-height: 740px) {
+  #scene {
+    top: -155px;
+  }
+}
+@media (min-height: 760px) {
+  #scene {
+    top: -145px;
+  }
+}
+@media (min-height: 780px) {
+  #scene {
+    top: -135px;
+  }
+}
+@media (min-height: 800px) {
+  #scene {
+    top: -125px;
+  }
+}
+@media (min-height: 820px) {
+  #scene {
+    top: -115px;
+  }
+}
+@media (min-height: 840px) {
+  #scene {
+    top: -105px;
+  }
+}
+@media (min-height: 860px) {
+  #scene {
+    top: -95px;
+  }
+}
+@media (min-height: 880px) {
+  #scene {
+    top: -85px;
+  }
+}
+@media (min-height: 900px) {
+  #scene {
+    top: -75px;
+  }
+}
+@media (min-height: 920px) {
+  #scene {
+    top: -65px;
+  }
+}
+@media (min-height: 940px) {
+  #scene {
+    top: -55px;
+  }
+}
+@media (min-height: 960px) {
+  #scene {
+    top: -45px;
+  }
+}
+@media (min-height: 980px) {
+  #scene {
+    top: -35px;
+  }
+}
+@media (min-height: 1000px) {
+  #scene {
+    top: -25px;
+  }
+}
+@media (min-height: 1020px) {
+  #scene {
+    top: -15px;
+  }
+}
+@media (min-height: 1040px) {
+  #scene {
+    top: -5px;
+  }
+}
+@media (min-height: 1060px) {
+  #scene {
+    top: 5px;
+  }
+}
+@media (min-height: 1080px) {
+  #scene {
+    top: 15px;
+  }
+}
+@media (min-height: 1100px) {
+  #scene {
+    top: 25px;
+  }
 }

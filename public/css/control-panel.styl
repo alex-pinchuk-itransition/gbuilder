@@ -1,10 +1,3 @@
-#scene
-	width 800px
-	height 800px
-	position absolute
-	left 50%
-	margin-left -400px
-
 .control-panel
 	width 960px
 	height 250px
@@ -108,3 +101,13 @@
 		box-shadow 3px 3px 20px #0003
 		float left
 		border-radius 10px
+
+#scene
+	width 800px
+	height 800px
+	position absolute
+	left 50%
+	margin-left -400px
+	for i in 1..30
+		@media (min-height: (500 + i * 20)px)
+			top: ((125 + i * 10) - 400)px
