@@ -7,7 +7,7 @@ export function select_tab(id) {
 	return {type: SELECT_TAB, id};
 }
 
-export function select_side(side) {
+export function select_side(id) {
 	return {type: SELECT_VIEW, id};
 }
 
@@ -15,7 +15,7 @@ export function select_color(color) {
 	return {type: SELECT_COLOR, color};
 }
 
-export function select_color(lang) {
+export function select_lang(lang) {
 	return {type: SELECT_LANG, lang};
 }
 

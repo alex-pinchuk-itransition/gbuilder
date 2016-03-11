@@ -28,7 +28,7 @@ function init() {
 	light.position.set( 1, 1, 1 ).normalize();
 	scene.add( light );
 	scene.add( mesh );
-	renderer = new THREE.WebGLRenderer();
+	renderer = new THREE.WebGLRenderer({antialias: true});
 	renderer.setSize(target.clientWidth, target.clientHeight);
 	renderer.setClearColor( 0xffffff );
 
@@ -47,8 +47,6 @@ function onWindowResize() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-//
-
 function onDocumentMouseDown(event) {
 	event.preventDefault();
 	renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
@@ -60,6 +58,8 @@ function onDocumentMouseDown(event) {
 function onDocumentMouseMove(event) {
 	mesh.rotation.y -= (pos.x - event.clientX) * 0.005;
 	mesh.rotation.x -= (pos.y - event.clientY) * 0.005;
+	if(mesh.rotation.x > 0.666) mesh.rotation.x = 0.666;
+	if(mesh.rotation.x < -0.666) mesh.rotation.x = -0.666;
 	pos = {x: event.clientX, y: event.clientY};
 }
 
@@ -78,30 +78,30 @@ function onDocumentMouseOut(event) {
 function onDocumentTouchStart(event) {
 	if (event.touches.length == 1) {
 		event.preventDefault();
-		mouseXOnMouseDown = event.touches[ 0 ].pageX - sceneHalfX;
-		targetRotationOnMouseDown = targetRotation;
+		pos = {x: event.touches[0].pageX, y: event.touches[0].pageY};
 	}
 }
 
 function onDocumentTouchMove(event) {
 	if (event.touches.length == 1) {
-		event.preventDefault();
-		mouseX = event.touches[ 0 ].pageX - sceneHalfX;
-		targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
+		mesh.rotation.y -= (pos.x - event.touches[0].pageX) * 0.005;
+		mesh.rotation.x -= (pos.y - event.touches[0].pageY) * 0.005;
+		if(mesh.rotation.x > 0.666) mesh.rotation.x = 0.666;
+		if(mesh.rotation.x < -0.666) mesh.rotation.x = -0.666;
+		pos = {x: event.touches[0].pageX, y: event.touches[0].pageY};
 	}
 }
 
 function animate() {
 	var timer = 0.0001 * Date.now();
 	requestAnimationFrame( animate );
-	// mesh.rotation.x += targetRotation;
-	// for ( var i = 0; i < geometry.faces.length; i += 2 ) {
-		// var hex = Math.random() * 0xffffff;
-		// geometry.faces[ i ].color.setHex( hex );
-		// geometry.faces[ i + 1 ].color.setHex( hex );
-	// }
-	// geometry.colorsNeedUpdate = true;
 	renderer.render( scene, camera );
-
 }
 
+function set_colors(colors) {
+	for(var i = 0; i < colors.length; i++) {
+		geometry.faces[2 * i].color.setHex(colors[i]);
+		geometry.faces[2 * i + 1].color.setHex(colors[i]);
+	}
+	geometry.colorsNeedUpdate = true;
+}

@@ -31,10 +31,7 @@ module.exports = {
 				include: path.join(__dirname, 'src')
 			}, {
 				test: /\.styl$/,
-				loader: ExtractTextPlugin.extract(
-					'style',
-					'css!autoprefixer?browsers=last 2 versions!stylus?resolve url'
-				)
+				loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
 			}
 		]
 	},
