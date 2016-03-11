@@ -12,5 +12,6 @@ Also I used Webpack for build JavaScript application and stylus for CSS preproce
 4. Run in terminal `cd gbuilder`
 5. Run in terminal `npm install`
 6. Run in terminal `webpack`
-Assembly application will be accessed in `./public` dirrectory, file index.html
+
+Assembly application will be accessed in `./public` dirrectory, file `index.html`
 Also you can see this demo http://alex-pinchuk-itransition.github.io/gbuilder/
